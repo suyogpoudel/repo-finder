@@ -90,13 +90,16 @@ const DisplayRepo = () => {
             >
               {error ? (
                 <div className="flex flex-col items-center">
-                  <p className="mb-4">{error}</p>
-                  <Button
-                    variant={"secondary"}
-                    onClick={fetchRepo}
-                  >
-                    Refresh
-                  </Button>
+                  <p>{error}</p>
+                  {language && (
+                    <Button
+                      variant={"secondary"}
+                      onClick={fetchRepo}
+                      className="mt-4"
+                    >
+                      Refresh
+                    </Button>
+                  )}
                 </div>
               ) : loading ? (
                 <p>Loading...</p>
@@ -131,16 +134,13 @@ const DisplayRepo = () => {
 
               <Separator />
 
-              <div className="flex justify-between items-center text-sm w-full">
-                <div className="flex gap-2 items-center">
-                  <Code />
-                  <span>{repo.language}</span>
-                </div>
-                <div className="flex gap-2 items-center">
+              <div className="flex justify-between items-center w-full">
+                <span className="text-primary">{repo.language}</span>
+                <div className="flex gap-2 items-center text-sm text-muted-foreground">
                   <Star />
                   <span>{repo.stargazersCount}</span>
                 </div>
-                <div className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center text-sm text-muted-foreground">
                   <GitFork />
                   <span>{repo.forksCount}</span>
                 </div>

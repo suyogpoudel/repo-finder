@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { IconBrandGithub, IconBrandGithubFilled } from "@tabler/icons-react";
-import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 
 const Navbar = () => {
