@@ -32,6 +32,7 @@ const DisplayRepo = () => {
   const fetchRepo = async () => {
     setLoading(true);
     setError(null);
+    setRepo(null);
     try {
       if (!language) {
         setError("Please select a language");
