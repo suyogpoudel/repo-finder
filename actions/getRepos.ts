@@ -7,7 +7,7 @@ export type Repo = {
   description: string;
   stargazersCount: number;
   forksCount: number;
-  watchersCount: number;
+  language: string;
   ownerUsername: string;
   ownerUrl: string;
 };
@@ -42,7 +42,7 @@ export const getRepos = async (language: string): Promise<Repo> => {
 
   const MAX_RESULTS = 1000;
   const safeTotal = Math.min(totalCount, MAX_RESULTS);
-  const totalPages = Math.floor(safeTotal / PER_PAGE);
+  const totalPages = Math.ceil(safeTotal / PER_PAGE);
 
   const randomPage = getRandomNumber(totalPages) + 1;
 
@@ -76,7 +76,7 @@ export const getRepos = async (language: string): Promise<Repo> => {
     description: randomItem.description,
     stargazersCount: randomItem.stargazers_count,
     forksCount: randomItem.forks_count,
-    watchersCount: randomItem.watchers_count,
+    language: randomItem.language,
     ownerUsername: randomItem.owner.login,
     ownerUrl: randomItem.owner.html_url,
   };
