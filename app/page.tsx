@@ -1,3 +1,5 @@
+import DisplayRepo from "@/components/display-repo";
+
 const Home = () => {
   return (
     <div className="main">
@@ -10,6 +12,7 @@ const Home = () => {
           uses that language.
         </p>
       </div>
+      <DisplayRepo />
     </div>
   );
 };
